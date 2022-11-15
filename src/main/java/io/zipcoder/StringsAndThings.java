@@ -30,8 +30,10 @@ public class StringsAndThings {
      *           removeString("Hello there", "x") // Should return "Hello there"
      */
     public String removeString(String base, String remove){
-        String[] sb = remove.split(" ");
-        return null;
+        String s = base + remove;
+        s = (s.replace(remove, ""));
+        return s;
+
     }
 
     /**
@@ -43,7 +45,12 @@ public class StringsAndThings {
      *           containsEqualNumberOfIsAndNot("noisxxnotyynotxisi") // Should return true
      */
     public Boolean containsEqualNumberOfIsAndNot(String input){
-        return null;
+        int equalsValue = input.split("is", -1). length - 1;
+        int notEqualsValue = input.split("not", -1). length - 1;
+        if (equalsValue == notEqualsValue){
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -54,9 +61,13 @@ public class StringsAndThings {
      *           gHappy("xxggyygxx") // Should return  false
      */
     public Boolean gIsHappy(String input){
-        return null;
-    }
+        if (input.contains("gg")){
+            return true;
+        } else {
+            return false;
+        }
 
+    }
 
     /**
      * We'll say that a "triple" in a string is a char appearing three times in a row.
@@ -66,6 +77,12 @@ public class StringsAndThings {
      *            countTriple("a") // Should return 0
      */
     public Integer countTriple(String input){
-        return null;
+        int length = input.length();
+        int count = 0;
+        for (int i = 0; i < length - 8 ; i++){
+            if (input.charAt(i) == input.charAt(i+1) && input.charAt(i+1) == input.charAt(i+2));
+            count++;
+        }
+        return count;
     }
 }
